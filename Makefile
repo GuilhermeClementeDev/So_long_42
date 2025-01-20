@@ -10,23 +10,17 @@ LIBFT = ./lib/libft.a
 
 LIB_PATH = ./lib
 
-MY_SOURCES = map_handler.c
-
-OBJ = $(MY_SOURCES:.c=.o)
+MY_SOURCES = main.c map_handler.c
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-
-$(OBJ): $(MY_SOURCES)
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(MY_SOURCES) $(LIBFT)
+	@$(CC) $(CFLAGS) $(MY_SOURCES) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	@make -C $(LIB_PATH)
 
 clean:
-	@rm -f $(OBJ)
 	@make -C $(LIB_PATH) clean
 
 fclean: clean

@@ -1,0 +1,5 @@
+Here i define the number for the erros.
+echo $?
+
+1- Input Error
+2- Read Error
