@@ -6,31 +6,25 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT = ./lib/libft.a
-
-LIB_PATH = ./lib
-
-MY_SOURCES = map_handler.c
-
-OBJ = $(MY_SOURCES:.c=.o)
+LIBFTNAME = libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+$(NAME): makelib
 
-$(OBJ): $(MY_SOURCES)
-	$(CC) $(CFLAGS) -c $< -o $@
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(LIBFT):
-	@make -C $(LIB_PATH)
+makelib:
+	@make -C ./lib
+	@cp ./lib/$(LIBFTNAME) .
 
 clean:
-	@rm -f $(OBJ)
-	@make -C $(LIB_PATH) clean
+	@rm -f
+	@cd ./lib && make clean
 
 fclean: clean
-	@rm -f $(NAME)
-	@make -C $(LIB_PATH) fclean
+	@rm -f $(LIBFTNAME)
+	@cd ./lib && make fclean
 
 re: fclean all
