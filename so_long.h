@@ -19,6 +19,7 @@ typedef struct s_map
 	int			wall;
 	int			c;
 	int			exit;
+	int			malloc;
 	t_player	player;
 }	t_map;
 

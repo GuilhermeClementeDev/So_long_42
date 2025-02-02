@@ -3,16 +3,17 @@
 void	ft_rectangular(t_game *game)
 {
 	int		i;
+	size_t	width;
 
 	i = 1;
 	game->map_game.width_map = ft_strlen(game->map_game.map[0]);
-
+	width = game->map_game.width_map;
 	if (game->map_game.width_map == game->map_game.height_map)
 		ft_error("Its a square,not a rectangular", 5, game);
 
 	while (i < game->map_game.height_map)
 	{
-		if (ft_strlen(game->map_game.map[i]) != game->map_game.width_map)
+		if (ft_strlen(game->map_game.map[i]) != width)
 			ft_error("Size of line map diferent", 5, game);
 		i++;
 	}

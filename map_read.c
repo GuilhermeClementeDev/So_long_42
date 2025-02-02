@@ -45,7 +45,7 @@ void	ft_read_file(char *argv, t_game *game)
 	map = ft_strdup("");
 	if (!map)
 		ft_error("", 3, game);
-	while (line_tmp = get_next_line(fd_map))
+	while ((line_tmp = get_next_line(fd_map)))
 	{
 		tmp = ft_strjoin(map, line_tmp);
 		free(map);
@@ -58,11 +58,14 @@ void	ft_read_file(char *argv, t_game *game)
 	close(fd_map);
 	ft_new_line_handler(map, game);
 	game->map_game.map = ft_split(map, '\n');
+	game->map_game.malloc = 1;
 	free(map);
 }
 
 void	ft_check_input(int argc, char **argv, t_game *game)
 {
+	game->map_game.malloc = 0;
+
 	if (argc > 2)
 		ft_error("Too many arguments \nShould be: ./so_long 'map.ber'", 1, game);
 	else if (argc < 2)
