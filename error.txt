@@ -5,4 +5,9 @@ echo $?
 2- Read Error
 3- Memory allocation failed
 4- '\n' error
-5- Map not retangular
+5- Map size not correct (not retangular, size invalid)
+6- Invalid char on map !(10CEP)
+7- Wall invalid
+8- Invalid collectibles
+9- Invalid exit number
+10- Invalid number of players
