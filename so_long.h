@@ -4,10 +4,28 @@
 #include "lib/libft.h"
 #include <fcntl.h>
 
-void	ft_check_input(int argc, char **argv);
+typedef struct s_map
+{
+	char		**map;
+	int			width_map;
+	int			height_map;
+	int			wall;
+	int			collectible;
+	int			exit_map;
+	int			player_qtd;
+}	t_map;
 
-void	ft_error(char *str, int n);
+typedef struct s_game
+{
+	t_map		map_game;
+}	t_game;
 
-void	ft_read_file(char *argv);
+void	ft_check_input(int argc, char **argv, t_game *game);
+
+void	ft_error(char *str, int n, t_game *game);
+
+void	ft_read_file(char *argv, t_game *game);
+
+ft_map_validation(t_game *game);
 
 #endif

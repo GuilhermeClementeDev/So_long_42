@@ -3,3 +3,6 @@ echo $?
 
 1- Input Error
 2- Read Error
+3- Memory allocation failed
+4- '\n' error
+5- Map not retangular

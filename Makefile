@@ -10,7 +10,7 @@ LIBFT = ./lib/libft.a
 
 LIB_PATH = ./lib
 
-MY_SOURCES = main.c map_handler.c
+MY_SOURCES = main.c map_read.c error.c map_verify.c
 
 all: $(NAME)
 
