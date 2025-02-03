@@ -36,4 +36,6 @@ void	ft_read_file(char *argv, t_game *game);
 
 void	ft_map_validation(t_game *game);
 
+void	ft_path_validation(t_game *game);
+
 #endif
