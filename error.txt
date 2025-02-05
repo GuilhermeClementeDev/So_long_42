@@ -11,3 +11,4 @@ echo $?
 8- Invalid collectibles
 9- Invalid exit number
 10- Invalid number of players
+11- Invalid Path
