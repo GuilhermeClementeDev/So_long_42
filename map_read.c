@@ -15,7 +15,7 @@ void	ft_new_line_handler(char *map, t_game *game)
 		free(map);
 		ft_error("Map has an empty line at the beginning.", 4, game);
 	}
-	if (map[ft_strlen(map) - 1] == '\n')
+	if (map[ft_strlen(map) - 2] == '\n')
 	{
 		free(map);
 		ft_error("Map has an empty line at the end.", 4, game);
