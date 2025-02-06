@@ -3,6 +3,7 @@
 
 #include "lib/libft.h"
 #include <fcntl.h>
+#include "mlx/mlx.h"
 
 typedef struct s_position
 {
@@ -26,6 +27,8 @@ typedef struct s_map
 typedef struct s_game
 {
 	t_map		map_game;
+	void		*mlx;
+	void		*win;
 }	t_game;
 
 void	ft_check_input(int argc, char **argv, t_game *game);
