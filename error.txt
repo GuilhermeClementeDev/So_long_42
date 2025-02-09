@@ -12,3 +12,4 @@ echo $?
 9- Invalid exit number
 10- Invalid number of players
 11- Invalid Path
+12- Error mlx windons and start

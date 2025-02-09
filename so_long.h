@@ -41,4 +41,5 @@ void	ft_map_validation(t_game *game);
 
 void	ft_path_validation(t_game *game);
 
+void	ft_open_mlx(t_game *game);
 #endif

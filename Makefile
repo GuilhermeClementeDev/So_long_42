@@ -10,7 +10,7 @@ LIBFT = ./lib/libft.a
 
 LIB_PATH = ./lib
 
-MINILIBX_FLAGS = -Lminilibx-linux -lmlx_Linux -lX11 -lXext
+MINILIBX_FLAGS = -Lmlx -lmlx_Linux -lX11 -lXext
 
 MLX = make_mlx
 
@@ -22,7 +22,7 @@ init_game.c
 all: $(NAME)
 
 $(NAME): $(MY_SOURCES) $(LIBFT) $(MLX)
-	@$(CC) $(CFLAGS) $(MY_SOURCES) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(MY_SOURCES) $(LIBFT) ${MINILIBX_FLAGS} -o $(NAME)
 
 $(LIBFT):
 	@make -C $(LIB_PATH)
