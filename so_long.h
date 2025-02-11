@@ -12,6 +12,13 @@ typedef struct s_position
 	int	count;
 }	t_player;
 
+typedef struct s_sprit
+{
+	void		*img_ptr;
+	int			size_x;
+	int			size_y;
+}	t_sprit;
+
 typedef struct s_map
 {
 	char		**map;
@@ -29,6 +36,13 @@ typedef struct s_game
 	t_map		map_game;
 	void		*mlx;
 	void		*win;
+	int			moves;
+	t_sprit		wall;
+	t_sprit		floor;
+	t_sprit		collectible;
+	t_sprit		exit_open;
+	t_sprit		exit_close;
+	t_sprit		player;
 }	t_game;
 
 void	ft_check_input(int argc, char **argv, t_game *game);
@@ -42,4 +56,8 @@ void	ft_map_validation(t_game *game);
 void	ft_path_validation(t_game *game);
 
 void	ft_open_mlx(t_game *game);
+
+void	init_sprites(t_game *game);
+
+int		render(t_game *game);
 #endif

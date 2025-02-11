@@ -10,5 +10,7 @@ int	main(int argc, char **argv)
 	ft_map_validation(game);
 	ft_path_validation(game);
 	ft_open_mlx(game);
+	init_sprites(game);
+	render(game);
 	mlx_loop(game->mlx);
 }
