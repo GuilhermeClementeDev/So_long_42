@@ -41,12 +41,13 @@ static char **ft_copy_map(t_game *game)
 
 void	flood_fill(char **cp_map, int x, int y, t_game *game)
 {
-    if (cp_map[y][x] == '1' || cp_map[y][x] == 'F')
-        return;
+	if (cp_map[y][x] == 'E')
+		cp_map[y][x] = 'K';
 
-    cp_map[y][x] = 'F';
+	if (cp_map[y][x] == '1' || cp_map[y][x] == 'F' || cp_map[y][x] == 'K')
+	    return;
 
-	//print_map(cp_map, game->map_game.height_map);
+	cp_map[y][x] = 'F';
 
     flood_fill(cp_map, x + 1, y, game);
     flood_fill(cp_map, x - 1, y, game);
