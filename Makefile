@@ -17,7 +17,7 @@ MLX = make_mlx
 MLX_PATH = ./mlx
 
 MY_SOURCES = main.c map_read.c error.c map_verify.c valid_path.c \
-init_game.c render.c
+init_game.c render.c game.c
 
 all: $(NAME)
 

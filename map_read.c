@@ -67,9 +67,9 @@ void	ft_check_input(int argc, char **argv, t_game *game)
 	game->map_game.malloc = 0;
 
 	if (argc > 2)
-		ft_error("Too many arguments \nShould be: ./so_long 'map.ber'", 1, game);
+		ft_error("Too many arguments \nShould be: ./so_long 'map.ber'\n", 1, game);
 	else if (argc < 2)
-		ft_error("The Map file is missing \nShould be: ./so_long 'map.ber'", 1, game);
+		ft_error("The Map file is missing \nShould be: ./so_long 'map.ber'\n", 1, game);
 	else if (!ft_strnstr(&argv[1][ft_strlen(argv[1]) - 4], ".ber", 4))
-		ft_error("Map file extention is wrong (It should be .ber).", 1, game);
+		ft_error("Map file extention is wrong (It should be .ber).\n", 1, game);
 }
