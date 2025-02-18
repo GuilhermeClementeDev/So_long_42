@@ -52,6 +52,7 @@ char	*ft_join_gnl(char *s1, char *s2)
 		arr = (char *)ft_memcpy(arr, s1, size1);
 		ft_memcpy(arr + size1, s2, size2);
 		arr[size1 + size2] = '\0';
+		s1 = ft_free(s1);
 		return (arr);
 	}
 	return (NULL);

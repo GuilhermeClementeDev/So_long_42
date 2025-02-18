@@ -2,6 +2,9 @@
 
 void	ft_error(char *str, int n, t_game *game)
 {
+	int	i;
+
+	i = 0;
 	ft_putstr_fd("Error :(\n", 2);
 	if (n == 3)
 		ft_putstr_fd("Memory allocation failed.\n", 2);
@@ -11,9 +14,6 @@ void	ft_error(char *str, int n, t_game *game)
 	{
 		if (game->map_game.malloc == 1)
 		{
-			int	i;
-
-			i = 0;
 			while (i < game->map_game.height_map)
 			{
 				free(game->map_game.map[i]);

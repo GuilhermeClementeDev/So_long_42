@@ -1,32 +1,26 @@
 #include "so_long.h"
 
-void	ft_new_line_handler(char *map, t_game *game)
+static void	ft_free_error(char *msg, char *map, t_game *game)
+{
+	free(map);
+	ft_error(msg, 4, game);
+}
+
+static void	ft_new_line_handler(char *map, t_game *game)
 {
 	int	i;
 
 	i = 0;
-	if (!map || map[0] == '\0')
-	{
-		free(map);
-		ft_error("Empty map.", 4, game);
-	}
+	if (map[0] == '\0')
+		ft_free_error("Empty map.\n", map, game);
 	if (map[0] == '\n')
-	{
-		free(map);
-		ft_error("Map has an empty line at the beginning.", 4, game);
-	}
+		ft_free_error("Map has an empty line at the beginning.\n", map, game);
 	if (map[ft_strlen(map) - 2] == '\n')
-	{
-		free(map);
-		ft_error("Map has an empty line at the end.", 4, game);
-	}
+		ft_free_error("Map has an empty line at the end.\n", map, game);
 	while (map[i + 1])
 	{
 		if (map[i] == '\n' && map[i + 1] == '\n')
-		{
-			free(map);
-			ft_error("Map has an empty line in the middle.", 4, game);
-		}
+			ft_free_error("Map has an empty line in the middle.\n", map, game);
 		i++;
 	}
 }
@@ -36,7 +30,6 @@ void	ft_read_file(char *argv, t_game *game)
 	int		fd_map;
 	char	*line_tmp;
 	char	*map;
-	char	*tmp;
 
 	game->map_game.height_map = 0;
 	fd_map = open(argv, O_RDONLY);
@@ -47,10 +40,8 @@ void	ft_read_file(char *argv, t_game *game)
 		ft_error("", 3, game);
 	while ((line_tmp = get_next_line(fd_map)))
 	{
-		tmp = ft_strjoin(map, line_tmp);
-		free(map);
+		map = ft_join_gnl(map, line_tmp);
 		free(line_tmp);
-		map = tmp;
 		if (!map)
 			ft_error("", 3, game);
 		game->map_game.height_map++;

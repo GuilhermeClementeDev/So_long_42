@@ -65,10 +65,8 @@ static int	ft_verify(char *str)
 static char	*read_f(int fd, char *tmp, char *cont)
 {
 	int		rz;
-	char	*old_cont;
 
 	rz = 1;
-	old_cont = NULL;
 	while (rz != 0)
 	{
 		rz = read(fd, tmp, BUFFER_SIZE);
@@ -79,9 +77,7 @@ static char	*read_f(int fd, char *tmp, char *cont)
 		tmp[rz] = '\0';
 		if (!cont)
 			cont = ft_strdup_gnl("");
-		old_cont = cont;
-		cont = ft_join_gnl(old_cont, tmp);
-		old_cont = ft_free(old_cont);
+		cont = ft_join_gnl(cont, tmp);
 		if (ft_verify(tmp))
 			break ;
 	}
