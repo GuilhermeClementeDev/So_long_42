@@ -22,7 +22,7 @@ void	ft_open_mlx(t_game *game)
 }
 static t_sprit	get_img(void *mlx, char *path, t_game *game)
 {
-	t_sprit	img = {NULL, 0, 0};
+	t_sprit	img;
 
 	img.img_ptr = mlx_xpm_file_to_image(mlx, path, &img.size_x, &img.size_y);
 	if (img.img_ptr == NULL)

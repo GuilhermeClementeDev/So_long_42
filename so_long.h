@@ -61,5 +61,5 @@ void	init_sprites(t_game *game);
 
 int		render(t_game *game);
 
-int	ft_input(int key, t_game *game);
+int		ft_input(int key, t_game *game);
 #endif

@@ -1,16 +1,5 @@
 #include "so_long.h"
 
-/*void	print_map(char **map, int height)
-{
-	int i = 0;
-	while (i < height)
-	{
-		ft_printf("%s\n", map[i]);
-		i++;
-	}
-	ft_printf("\n");
-}*/
-
 static char **ft_copy_map(t_game *game)
 {
 	int	i;
@@ -41,12 +30,12 @@ static char **ft_copy_map(t_game *game)
 
 void	flood_fill(char **cp_map, int x, int y, t_game *game)
 {
-    if (cp_map[y][x] == '1' || cp_map[y][x] == 'F')
-        return;
+	if (cp_map[y][x] == 'E')
+		cp_map[y][x] = 'K';
+	if (cp_map[y][x] == '1' || cp_map[y][x] == 'F' || cp_map[y][x] == 'K')
+	    return;
 
     cp_map[y][x] = 'F';
-
-	//print_map(cp_map, game->map_game.height_map);
 
     flood_fill(cp_map, x + 1, y, game);
     flood_fill(cp_map, x - 1, y, game);
