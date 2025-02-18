@@ -25,3 +25,30 @@ void	ft_error(char *str, int n, t_game *game)
 	}
 	exit(n);
 }
+void	ft_error_mlx(char *msg, int n, t_game *game)
+{
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
+	ft_error(msg, n, game);
+}
+void	ft_free_sprites(t_game *game)
+{
+	if (game->wall.img_ptr)
+		mlx_destroy_image(game->mlx, game->wall.img_ptr);
+	if (game->player.img_ptr)
+		mlx_destroy_image(game->mlx, game->player.img_ptr);
+	if (game->floor.img_ptr)
+		mlx_destroy_image(game->mlx, game->floor.img_ptr);
+	if (game->exit_open.img_ptr)
+		mlx_destroy_image(game->mlx, game->exit_open.img_ptr);
+	if (game->exit_close.img_ptr)
+		mlx_destroy_image(game->mlx, game->exit_close.img_ptr);
+	if (game->collectible.img_ptr)
+		mlx_destroy_image(game->mlx, game->collectible.img_ptr);
+	ft_error_mlx("Failed to generate image from xpm\n", 13, game);
+}

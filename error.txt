@@ -13,3 +13,4 @@ echo $?
 10- Invalid number of players
 11- Invalid Path
 12- Error mlx windons and start
+13- Error image from xpm 'mlx_xpm_file_to_image'

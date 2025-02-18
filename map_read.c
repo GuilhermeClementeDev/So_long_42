@@ -35,7 +35,7 @@ void	ft_read_file(char *argv, t_game *game)
 	game->map_game.height_map = 0;
 	fd_map = open(argv, O_RDONLY);
 	if (fd_map == -1)
-		ft_error("File couldn't be opened. Is the file correct?", 2, game);
+		ft_error("File couldn't be opened. Is the file correct?\n", 2, game);
 	while (1)
 	{
 		line_tmp = get_next_line(fd_map);
