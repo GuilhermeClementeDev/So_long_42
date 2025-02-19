@@ -44,6 +44,12 @@ char	*ft_join_gnl(char *s1, char *s2)
 	unsigned int	size2;
 	char			*arr;
 
+	if (!s1)
+	{
+		s1 = ft_strdup_gnl("");
+		if (!s1)
+			return (NULL);
+	}
 	size1 = ft_strlen(s1);
 	size2 = ft_strlen(s2);
 	arr = (char *)malloc(sizeof(char) * (size1 + size2 + 1));
