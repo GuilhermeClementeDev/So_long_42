@@ -9,8 +9,8 @@ int	main(int argc, char **argv)
 		ft_error("", 3, game);
 	ft_check_input(argc, argv, game);
 	ft_read_file(argv[1], game);
+	ft_map_validation(game);
 	ft_error("teste", 1, game);
-	//ft_map_validation(game);
 	//ft_path_validation(game);
 	//ft_open_mlx(game);
 	//init_sprites(game);
