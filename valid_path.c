@@ -45,25 +45,27 @@ static void	ft_path_exist(char **cp_map, t_game *game)
 {
 	int	i;
 	int	k;
+	int	error;
 
 	i = 0;
-	while (i < game->map_game.height_map)
+	error = 0;
+	while (i < game->map_game.height_map && error == 0)
 	{
 		k = 0;
-		while (k < game->map_game.width_map)
+		while (k < game->map_game.width_map && error == 0)
 		{
 			if (cp_map[i][k] == 'C' || cp_map[i][k] == 'E')
-			{
-				i = 0;
-				while (i < game->map_game.height_map)
-					free (cp_map[i++]);
-				free (cp_map);
-				ft_error("Invalid Path\n", 11, game);
-			}
+				error = -1;
 			k++;
 		}
 		i++;
 	}
+	i = 0;
+	while (i < game->map_game.height_map)
+		free (cp_map[i++]);
+	free (cp_map);
+	if (error == -1)
+		ft_error("Invalid Path\n", 11, game);
 }
 
 void	ft_path_validation(t_game *game)
