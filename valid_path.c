@@ -1,14 +1,14 @@
 #include "so_long.h"
 
-static char **ft_copy_map(t_game *game)
+static char	**ft_copy_map(t_game *game)
 {
-	int	i;
+	int		i;
 	char	**cp;
 
 	i = 0;
 	cp = malloc((game->map_game.height_map + 1) * sizeof(char *));
 	if (!cp)
-		ft_error("", 3 ,game);
+		ft_error ("", 3, game);
 	while (i < game->map_game.height_map)
 	{
 		cp[i] = ft_strdup(game->map_game.map[i]);
@@ -28,21 +28,20 @@ static char **ft_copy_map(t_game *game)
 	return (cp);
 }
 
-void	flood_fill(char **cp_map, int x, int y, t_game *game)
+static void	flood_fill(char **cp_map, int x, int y, t_game *game)
 {
 	if (cp_map[y][x] == 'E')
 		cp_map[y][x] = 'K';
 	if (cp_map[y][x] == '1' || cp_map[y][x] == 'F' || cp_map[y][x] == 'K')
-	    return;
-
-    cp_map[y][x] = 'F';
-
-    flood_fill(cp_map, x + 1, y, game);
-    flood_fill(cp_map, x - 1, y, game);
-    flood_fill(cp_map, x, y + 1, game);
+		return ;
+	cp_map[y][x] = 'F';
+	flood_fill(cp_map, x + 1, y, game);
+	flood_fill(cp_map, x - 1, y, game);
+	flood_fill(cp_map, x, y + 1, game);
 	flood_fill(cp_map, x, y - 1, game);
 }
-void	ft_path_exist(char **cp_map, t_game *game)
+
+static void	ft_path_exist(char **cp_map, t_game *game)
 {
 	int	i;
 	int	k;
@@ -59,7 +58,7 @@ void	ft_path_exist(char **cp_map, t_game *game)
 				while (i < game->map_game.height_map)
 					free (cp_map[i++]);
 				free (cp_map);
-				ft_error("Invalid Path", 11, game);
+				ft_error("Invalid Path\n", 11, game);
 			}
 			k++;
 		}
@@ -72,6 +71,7 @@ void	ft_path_validation(t_game *game)
 	char	**cp_map;
 
 	cp_map = ft_copy_map(game);
-	flood_fill(cp_map, game->map_game.player.width, game->map_game.player.height, game);
+	flood_fill(cp_map, game->map_game.player.width, \
+		game->map_game.player.height, game);
 	ft_path_exist(cp_map, game);
 }
