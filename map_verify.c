@@ -9,11 +9,11 @@ static void	ft_rectangular(t_game *game)
 	game->map_game.width_map = ft_strlen(game->map_game.map[0]);
 	width = game->map_game.width_map;
 	if (game->map_game.width_map == game->map_game.height_map)
-		ft_error("Its a square,not a rectangular", 5, game);
+		ft_error("Its a square,not a rectangular\n", 5, game);
 	while (i < game->map_game.height_map)
 	{
 		if (ft_strlen(game->map_game.map[i]) != width)
-			ft_error("Size of line map diferent", 5, game);
+			ft_error("Size of line map diferent\n", 5, game);
 		i++;
 	}
 }
@@ -28,14 +28,14 @@ static void	ft_check_walls(char **map, int height, int width, t_game *game)
 	while (i < height)
 	{
 		if ((map[i][0] != '1') || (map[i][width - 1] != '1'))
-			ft_error("Invalid wall in the sides", 7, game);
+			ft_error("Invalid wall in the sides\n", 7, game);
 		k = 0;
 		while (map[i][k])
 		{
 			if (!ft_strchr(valid_chars, map[i][k]))
-				ft_error("Map contains invalid character.", 6, game);
+				ft_error("Map contains invalid character.\n", 6, game);
 			if ((i == 0 || i == height - 1) && map[i][k] != '1')
-				ft_error("Invalid wall first or last row", 7, game);
+				ft_error("Invalid wall first or last row\n", 7, game);
 			k++;
 		}
 		i++;
@@ -75,13 +75,13 @@ static void	ft_validate_contents(t_game *game)
 		ft_error("Map has invalid size", 5, game);
 	if (game->map_game.c < 1)
 		ft_error("Map has invalid collectible number\
-			\nMust have at last one", 8, game);
+			\nMust have at last one\n", 8, game);
 	else if (game->map_game.exit != 1)
 		ft_error("Map has invalid number of exits\
-			\n Must have only one", 9, game);
+			\nMust have only one\n", 9, game);
 	else if (game->map_game.player.count != 1)
 		ft_error("Map has invalid number of players\
-			\n Must have only one", 10, game);
+			\nMust have only one\n", 10, game);
 }
 
 void	ft_map_validation(t_game *game)
