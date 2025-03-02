@@ -14,6 +14,7 @@ void	ft_open_mlx(t_game *game)
 	if (game->win == NULL)
 		ft_error_mlx("Error creating a window\n", 12, game);
 }
+
 static t_sprite	ft_get_img(void *mlx, char *path, t_game *game)
 {
 	t_sprite	img;
@@ -23,6 +24,7 @@ static t_sprite	ft_get_img(void *mlx, char *path, t_game *game)
 		ft_free_sprites(game);
 	return (img);
 }
+
 void	ft_init_sprites(t_game *game)
 {
 	game->wall.img_ptr = NULL;
@@ -31,7 +33,6 @@ void	ft_init_sprites(t_game *game)
 	game->exit_open.img_ptr = NULL;
 	game->exit_close.img_ptr = NULL;
 	game->collectible.img_ptr = NULL;
-
 	game->wall = ft_get_img(game->mlx, "textures/wall2.xpm", game);
 	game->player = ft_get_img(game->mlx, "textures/player.xpm", game);
 	game->floor = ft_get_img(game->mlx, "textures/floor.xpm", game);
