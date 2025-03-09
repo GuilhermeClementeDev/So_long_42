@@ -32,6 +32,6 @@ int	ft_input(int key, t_game *game)
 		check_and_move(game, game->map_game.player.height, game->map_game.player.width + 1);
 	if (key == 97 || key == 65361)
 		check_and_move(game, game->map_game.player.height, game->map_game.player.width - 1);
-	render(game);
+	ft_render(game);
 	return 0;
 }

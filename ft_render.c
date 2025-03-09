@@ -27,7 +27,7 @@ static void	put_to_window(t_game *game, char element, int row, int col)
 		mlx_put_image_to_window(mlx, win, img_ptr, (col * 64), (row * 64));
 }
 
-int	render(t_game *game)
+void	ft_render(t_game *game)
 {
 	int		i;
 	int		k;
@@ -50,5 +50,4 @@ int	render(t_game *game)
 	ft_printf("%s\n", print_moviments);
 	free(str_num);
 	free(print_moviments);
-	return (0);
 }
