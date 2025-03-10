@@ -63,7 +63,7 @@ void	ft_render(t_game *game);
 
 int		ft_input(int key, t_game *game);
 
-void	ft_free_sprites(t_game *game);
+void	ft_free_sprites(int n, t_game *game);
 
 void	ft_error_mlx(char *msg, int n, t_game *game);
 

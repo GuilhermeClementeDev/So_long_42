@@ -1,15 +1,27 @@
 #include "so_long.h"
 
+void	ft_msg(char *str, int n)
+{
+	int	std;
+
+	if (n == 0)
+		std = 1;
+	else
+	{
+		std = 2;
+		ft_putstr_fd("Error :(\n", std);
+	}
+	if (n == 3)
+		ft_putstr_fd("Memory allocation failed.\n", std);
+	else
+		ft_putstr_fd(str, std);
+}
 void	ft_error(char *str, int n, t_game *game)
 {
 	int	i;
 
 	i = 0;
-	ft_putstr_fd("Error :(\n", 2);
-	if (n == 3)
-		ft_putstr_fd("Memory allocation failed.\n", 2);
-	else
-		ft_putstr_fd(str, 2);
+	ft_msg(str, n);
 	if (game)
 	{
 		if (game->map_game.malloc == 1)
@@ -36,7 +48,7 @@ void	ft_error_mlx(char *msg, int n, t_game *game)
 	}
 	ft_error(msg, n, game);
 }
-void	ft_free_sprites(t_game *game)
+void	ft_free_sprites(int n, t_game *game)
 {
 	if (game->wall.img_ptr)
 		mlx_destroy_image(game->mlx, game->wall.img_ptr);
@@ -50,5 +62,8 @@ void	ft_free_sprites(t_game *game)
 		mlx_destroy_image(game->mlx, game->exit_close.img_ptr);
 	if (game->collectible.img_ptr)
 		mlx_destroy_image(game->mlx, game->collectible.img_ptr);
-	ft_error_mlx("Failed to generate image from xpm\n", 13, game);
+	if (n != 0)
+		ft_error_mlx("Failed to generate image from xpm\n", n, game);
+	else
+		ft_error_mlx("Closing game...\n", n, game);
 }

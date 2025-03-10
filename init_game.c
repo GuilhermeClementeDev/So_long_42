@@ -21,7 +21,7 @@ static t_sprite	ft_get_img(void *mlx, char *path, t_game *game)
 
 	img.img_ptr = mlx_xpm_file_to_image(mlx, path, &img.size_x, &img.size_y);
 	if (img.img_ptr == NULL)
-		ft_free_sprites(game);
+		ft_free_sprites(13, game);
 	return (img);
 }
 

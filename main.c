@@ -14,8 +14,7 @@ int	main(int argc, char **argv)
 	ft_open_mlx(game);
 	ft_init_sprites(game);
 	ft_render(game);
-	//ft_error("teste", 1, game);
-	//mlx_key_hook(game->win, ft_input, game);
-	//mlx_loop(game->mlx);
+	mlx_key_hook(game->win, ft_input, game);
+	mlx_loop(game->mlx);
 	return (0);
 }

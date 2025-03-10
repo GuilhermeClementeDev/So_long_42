@@ -6,7 +6,9 @@ static void	check_and_move(t_game *game, int height, int width)
 	{
 		if (game->map_game.map[height][width] == 'E' && !game->map_game.c)
 			{
-				ft_putstr_fd("Congratulations, you win!!\n", 1);
+				game->moves++;
+				ft_printf("Moviments: %d\n", game->moves++);
+				ft_free_sprites(0, game);
 			}
 		return ;
 	}
@@ -21,9 +23,7 @@ static void	check_and_move(t_game *game, int height, int width)
 int	ft_input(int key, t_game *game)
 {
 	if (key == 65307)
-	{
-
-	}
+		ft_free_sprites(0, game);
 	if (key == 119 || key == 65362)
 		check_and_move(game, game->map_game.player.height - 1, game->map_game.player.width);
 	if (key == 115 || key == 65364)
