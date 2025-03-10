@@ -15,6 +15,7 @@ int	main(int argc, char **argv)
 	ft_init_sprites(game);
 	ft_render(game);
 	mlx_key_hook(game->win, ft_input, game);
+	mlx_hook(game->win, 17, 0, ft_x, game);
 	mlx_loop(game->mlx);
 	return (0);
 }

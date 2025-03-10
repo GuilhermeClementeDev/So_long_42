@@ -67,4 +67,6 @@ void	ft_free_sprites(int n, t_game *game);
 
 void	ft_error_mlx(char *msg, int n, t_game *game);
 
+int		ft_x(t_game *game);
+
 #endif

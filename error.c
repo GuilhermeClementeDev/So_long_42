@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-void	ft_msg(char *str, int n)
+static void	ft_msg(char *str, int n)
 {
 	int	std;
 

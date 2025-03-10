@@ -35,3 +35,8 @@ int	ft_input(int key, t_game *game)
 	ft_render(game);
 	return 0;
 }
+int	ft_x(t_game *game)
+{
+	ft_free_sprites(0, game);
+	return (0);
+}
