@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_read.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guclemen <guclemen@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/24 09:52:53 by guclemen          #+#    #+#             */
+/*   Updated: 2025/03/24 09:52:55 by guclemen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 static void	ft_free_error(char *msg, char *map, t_game *game)
@@ -40,7 +52,7 @@ void	ft_read_file(char *argv, t_game *game)
 	{
 		line_tmp = get_next_line(fd_map);
 		if (!line_tmp)
-			break;
+			break ;
 		map = ft_join_gnl(map, line_tmp);
 		free(line_tmp);
 		if (!map)

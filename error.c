@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guclemen <guclemen@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/24 09:48:03 by guclemen          #+#    #+#             */
+/*   Updated: 2025/03/24 09:48:05 by guclemen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 static void	ft_msg(char *str, int n)
@@ -16,6 +28,7 @@ static void	ft_msg(char *str, int n)
 	else
 		ft_putstr_fd(str, std);
 }
+
 void	ft_error(char *str, int n, t_game *game)
 {
 	int	i;
@@ -37,6 +50,7 @@ void	ft_error(char *str, int n, t_game *game)
 	}
 	exit(n);
 }
+
 void	ft_error_mlx(char *msg, int n, t_game *game)
 {
 	if (game->win)
@@ -48,6 +62,7 @@ void	ft_error_mlx(char *msg, int n, t_game *game)
 	}
 	ft_error(msg, n, game);
 }
+
 void	ft_free_sprites(int n, t_game *game)
 {
 	if (game->wall.img_ptr)

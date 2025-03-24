@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guclemen <guclemen@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/24 09:56:33 by guclemen          #+#    #+#             */
+/*   Updated: 2025/03/24 09:56:35 by guclemen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "lib/libft.h"
-#include <fcntl.h>
-#include "mlx/mlx.h"
+# include "lib/libft.h"
+# include <fcntl.h>
+# include "mlx/mlx.h"
 
 typedef struct s_position
 {
@@ -37,12 +49,12 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	int			moves;
-	t_sprite		wall;
-	t_sprite		floor;
-	t_sprite		collectible;
-	t_sprite		exit_open;
-	t_sprite		exit_close;
-	t_sprite		player;
+	t_sprite	wall;
+	t_sprite	floor;
+	t_sprite	collectible;
+	t_sprite	exit_open;
+	t_sprite	exit_close;
+	t_sprite	player;
 }	t_game;
 
 void	ft_check_input(int argc, char **argv, t_game *game);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_game.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guclemen <guclemen@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/24 09:52:00 by guclemen          #+#    #+#             */
+/*   Updated: 2025/03/24 09:52:01 by guclemen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	ft_open_mlx(t_game *game)
@@ -27,6 +39,7 @@ static t_sprite	ft_get_img(void *mlx, char *path, t_game *game)
 
 void	ft_init_sprites(t_game *game)
 {
+	game->moves = 0;
 	game->wall.img_ptr = NULL;
 	game->player.img_ptr = NULL;
 	game->floor.img_ptr = NULL;
