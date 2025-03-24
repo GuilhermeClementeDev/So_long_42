@@ -16,23 +16,31 @@ MLX = make_mlx
 
 MLX_PATH = ./mlx
 
+MLX_LIB = ./mlx/libmlx_Linux.a
+
 MY_SOURCES = main.c map_read.c error.c map_verify.c valid_path.c \
 init_game.c ft_render.c game.c
 
+OBJS = $(MY_SOURCES:.c=.o)
+
 all: $(NAME)
 
-$(NAME): $(MY_SOURCES) $(LIBFT) $(MLX)
-	@$(CC) $(CFLAGS) $(MY_SOURCES) $(LIBFT) ${MINILIBX_FLAGS} -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT) $(MLX_LIB)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) ${MINILIBX_FLAGS} -o $(NAME)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 	@make -C $(LIB_PATH)
 
-make_mlx:
+$(MLX_LIB):
 	@make -C $(MLX_PATH)
 
 clean:
 	@make -C $(LIB_PATH) clean
 	@make -C $(MLX_PATH) clean
+	@rm -f $(OBJS)
 
 fclean: clean
 	@rm -f $(NAME)
