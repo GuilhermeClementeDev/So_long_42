@@ -26,7 +26,7 @@ OBJS = $(MY_SOURCES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(MLX_LIB)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) ${MINILIBX_FLAGS} -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MINILIBX_FLAGS) -o $(NAME)
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
